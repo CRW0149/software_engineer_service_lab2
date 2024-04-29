@@ -1,0 +1,15 @@
+server:
+  port: 16000
+eureka:
+  instance:
+    hostname: "eureka16000"
+  client:
+    #    是否将自己注册为服务
+    register-with-eureka: false
+    #    抓取注册列表
+    fetch-registry: false
+    service-url:
+      defaultZone: "http://eureka15000:15000/eureka/"
+  server:
+    #    自我保护机制（没有服务节点的心跳就会将服务注销，但是防止因为注册中心的问题导致注册其他服务）
+    enable-self-preservation: false

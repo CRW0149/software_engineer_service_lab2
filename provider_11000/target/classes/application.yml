@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: "provider"
+server:
+  port: 11000
+eureka:
+  instance:
+    #    显示ip地址而不是机器名
+    prefer-ip-address: true
+    instance-id: "${spring.cloud.client.ip-address}:${server.port}"
+    #    15秒没有通信，那就被从服务中心注销
+    lease-expiration-duration-in-seconds: 15
+    #    每5秒通信一次，心跳
+    lease-renewal-interval-in-seconds: 5
+  client:
+    #    微服务注册中心的地址
+    service-url:
+      defaultZone: "http://eureka15000:15000/eureka/,http://eureka16000:16000/eureka/"
